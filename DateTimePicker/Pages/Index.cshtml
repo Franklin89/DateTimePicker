@@ -1,0 +1,40 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="text-center">
+    <h5>@Model.CurrentUiCulture</h5>
+</div>
+
+<div class="text-center">
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="DateOfBirth"></label>
+            <input class="form-control datepicker" asp-for="DateOfBirth" type="text" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label asp-for="Created"></label>
+            <input class="form-control datepicker" asp-for="Created" type="text" autocomplete="off">
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+</div>
+
+@section Scripts  {
+<script>
+    $(function () {
+        $('.datepicker').datepicker({
+            orientation: 'bottom',
+            autoclose: true,
+            language: '@System.Threading.Thread.CurrentThread.CurrentUICulture.Name'
+        });
+    });
+</script>
+}
